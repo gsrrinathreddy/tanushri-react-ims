@@ -50,13 +50,22 @@ export default function Itemcard(props) {
   const [active, setActive] = useState();
   const [isShown, setIsShown] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
-  
+
   const handleClick = () => {
     setActive(!active);
   };
  
   let [qty,setQty]=useState(1);
   let dispatch=useDispatch()
+
+
+  let params={
+    title:title,
+    actualPrice:actualPrice,
+    discountedPrice:discountedPrice,
+    qty:parseInt(qty),
+    
+     }
   return (
     <>
     <Card sx={{ maxWidth: 360 }}
@@ -105,13 +114,13 @@ export default function Itemcard(props) {
         <TextField sx={{width:'50px'}} style={{backgroundColor:'white'}} size="small" id="outlined-basic" variant="outlined" defaultValue={1} onChange={(e)=>setQty(e.currentTarget.value)}/>
           <IconButton aria-label="cart " sx={{color:'blue'}}  onClick={()=>{
             if(ordername=="cake"){
-              dispatch(cakeordered(qty))
+              dispatch(cakeordered(params))
             }
             else if(ordername=="gift"){
-              dispatch(giftordered(qty))
+              dispatch(giftordered(params))
             }
             else if(ordername=="flower"){
-              dispatch(flowerordered(qty))
+              dispatch(flowerordered(params))
             }
           }}>
            <Avatar src="https://cdn.pixabay.com/photo/2016/10/10/14/46/icon-1728552__480.jpg" />
