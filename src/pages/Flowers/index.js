@@ -134,11 +134,11 @@ export default function Cake(){
     return(
       <>
        <Box sx={{margin:'25px'}}>
-        <Grid container spacing={{xs:2,md:3}} columns={{xs:4,sm:8,md:12}} style={{backgroundColor:'pink'}}>
+        <Grid container spacing={{xs:2,md:2}} columns={{xs:4,sm:8,md:12}} style={{backgroundColor:'pink'}}>
           {
             flowersList.map((item)=>{
               return(
-                < Grid item xs={2} sm={4} md={3} display='flex' justifyContent='center'>
+                < Grid item xs={4} sm={4} md={3} display='flex' justifyContent='center'>
                 <Itemcard title={item.title} subheader={item.subheader} cardMedia={item.cardMedia}
                 actualPrice={item.actualPrice} discountedPrice={item.discountedPrice}  
                 sellingStatus={item.sellingStatus} ed={item.ed} rating={item.rating} review={item.review}
