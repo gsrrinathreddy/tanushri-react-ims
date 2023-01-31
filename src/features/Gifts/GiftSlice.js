@@ -1,6 +1,6 @@
 import  {createSlice}  from "@reduxjs/toolkit"
 const initialState={
-    noOfGifts:20,
+  noOfGifts:20,
   noOfOrderedgifts:0,
   giftList:{
     qty:0,

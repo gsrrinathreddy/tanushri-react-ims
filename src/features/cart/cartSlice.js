@@ -21,6 +21,11 @@ const cartSlice=createSlice({
             console.log('cart',action.payload)
             state.cartList.push(action.payload)
             state.totalItems+=parseInt(action.payload.qty);
+        },
+        ['icecream/ordered']:(state,action)=>{
+            console.log('cart',action.payload)
+            state.cartList.push(action.payload)
+            state.totalItems+=parseInt(action.payload.qty);
         }
     }
 })

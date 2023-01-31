@@ -1,17 +1,16 @@
 import {useDispatch} from 'react-redux';
 import {ordered,restock} from '../IcecreamSlice';
+import LocalFloristIcon from '@mui/icons-material/LocalFlorist';
+import { useSelector } from 'react-redux';
 import { Button } from '@mui/material';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useSelector } from "react-redux";
-import IcecreamIcon from '@mui/icons-material/Icecream';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import * as React from 'react';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
-export default function IcecreamView(){
-  const [open, setOpen] = React.useState(false);
+export default function GiftView(){
+    const [open, setOpen] = React.useState(false);
 
   
     const handleClick = () => {
@@ -26,31 +25,33 @@ export default function IcecreamView(){
  
      setOpen(false);
    };
-  let noOfIcecreams=useSelector((state)=>state.icecream.noOfIcecreams);
-  console.log('no of Icecreams',noOfIcecreams);
+    let noOfIcecreams=useSelector((state)=>state.gift.noOfIcecreams);
+    console.log('no of icecream',noOfIcecreams);
   let order=1;
 const dispatch=useDispatch();
 return(
     <>
-    <h3>Number of Icecreams : {(noOfIcecreams<order)?'out of stock':noOfIcecreams}</h3>
+     <h3>Number of IceCream : {(noOfIcecreams<order)?'out of stock':noOfIcecreams}</h3>
     
-    < IcecreamIcon
-       onClick={handleClick}>
-        order icecream
-    </IcecreamIcon>
+    <LocalFloristIcon
+      onClick={handleClick}
+       
+     >
+        order gift
+    </LocalFloristIcon>
 
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           your order is successful
         </Alert>
       </Snackbar>
-      
-    <IcecreamIcon
+
+    <LocalFloristIcon
        onClick={()=>{
         dispatch(restock(2))
       }}>
-        restock icecream
-    </IcecreamIcon>
+        restock gift
+    </LocalFloristIcon>
     </>
 )
 }

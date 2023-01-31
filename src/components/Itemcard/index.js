@@ -19,9 +19,7 @@ import TextField from '@mui/material/TextField';
 import {useState,useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import { Box } from '@mui/material';
-import { ordered as cakeordered } from '../../features/cake/cakeSlice';
-import { ordered as giftordered } from '../../features/Gifts/GiftSlice';
-import { ordered as flowerordered } from '../../features/flowers/FlowerSlice';
+
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -45,7 +43,8 @@ export default function Itemcard(props) {
     let discount=actualPrice-discountedPrice;
     let dp=Math.floor((discount/actualPrice)*100)+"% off";
     let ed =props.ed;
-   
+     
+    let orderplaced=props.order;
   const [expanded, setExpanded] = React.useState(false);
   const [active, setActive] = useState();
   const [isShown, setIsShown] = useState(false);
@@ -113,15 +112,9 @@ export default function Itemcard(props) {
         </IconButton>
         <TextField sx={{width:'50px'}} style={{backgroundColor:'white'}} size="small" id="outlined-basic" variant="outlined" defaultValue={1} onChange={(e)=>setQty(e.currentTarget.value)}/>
           <IconButton aria-label="cart " sx={{color:'blue'}}  onClick={()=>{
-            if(ordername=="cake"){
-              dispatch(cakeordered(params))
-            }
-            else if(ordername=="gift"){
-              dispatch(giftordered(params))
-            }
-            else if(ordername=="flower"){
-              dispatch(flowerordered(params))
-            }
+           
+              dispatch(orderplaced(params))
+            
           }}>
            <Avatar src="https://cdn.pixabay.com/photo/2016/10/10/14/46/icon-1728552__480.jpg" />
             </IconButton>

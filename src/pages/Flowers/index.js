@@ -19,6 +19,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Idialog from '../../components/Idialog';
 import Iapprate from '../../components/Iapprate';
+import { ordered } from '../../features/flowers/FlowerSlice';
 const flowersList=[
   {
     title:"Gerberas",
@@ -141,7 +142,7 @@ export default function Cake(){
                 <Itemcard title={item.title} subheader={item.subheader} cardMedia={item.cardMedia}
                 actualPrice={item.actualPrice} discountedPrice={item.discountedPrice}  
                 sellingStatus={item.sellingStatus} ed={item.ed} rating={item.rating} review={item.review}
-                ordername={ordername}
+                ordername={ordername} order={ordered}
                 cakeimg={<CakeView/>}
                 
                 />

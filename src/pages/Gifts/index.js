@@ -14,6 +14,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Idialog from '../../components/Idialog';
 import Iapprate from '../../components/Iapprate';
+import { ordered } from '../../features/Gifts/GiftSlice';
 const giftslist=[
   {
     title:"Buddha Idol",
@@ -92,7 +93,7 @@ export default function Plants(){
                <Itemcard title={item.title} subheader={item.subheader} cardMedia={item.cardMedia}
                 actualPrice={item.actualPrice} discountedPrice={item.discountedPrice}  
                 sellingStatus={item.sellingStatus} ordername={ordername} ed={item.ed}
-              
+                order={ordered}
                />
                </Grid>
               )

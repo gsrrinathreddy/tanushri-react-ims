@@ -48,10 +48,11 @@ function IMSnavbar(props) {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl" style={{backgroundImage:"linear-gradient(to right,purple,orange)"}}>
+    <AppBar position="static" style={{backgroundImage:"linear-gradient(to right,purple,orange)"}}>
+      <Container maxWidth="xl" >
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 5 }} />
+          <Link to ='/' style={{textDecoration:'none'}}/>
           <Typography
             variant="h6"
             noWrap
@@ -100,9 +101,11 @@ function IMSnavbar(props) {
               }}
             >
               {pages.map((page) => (
+                <Link to={page} style={{textDecoration:'none'}}>
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
