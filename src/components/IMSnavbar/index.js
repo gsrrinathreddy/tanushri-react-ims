@@ -19,7 +19,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 //const pages = ['Products', 'Pricing', 'Blog'];
 //const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
+import { NavLink } from "react-router-dom";
 function IMSnavbar(props) {
   let pages = props.pages;
   let settings = props.settings;
@@ -46,6 +46,20 @@ function IMSnavbar(props) {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: "none",
+      textTransform: "none",
+      my: 2,
+      fontSize: isActive ? "18px" : "16px",
+      display: "block",
+      color: isActive ? "orange" : "white",
+      fontWeight: isActive ? "bold" : "normal",
+      marginRight: "10px",
+      marginLeft: "10px",
+    };
   };
 
   return (
@@ -134,8 +148,12 @@ function IMSnavbar(props) {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link to={page}>
-                <Button
+              <NavLink
+                to={page}
+                style={navLinkStyles}
+                onClick={handleCloseNavMenu}
+              >
+                {/* <Button
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{
@@ -144,10 +162,11 @@ function IMSnavbar(props) {
                     display: "block",
                     textTransform: "capitalize",
                   }}
-                >
+                > 
                   {page}
-                </Button>
-              </Link>
+                </Button> */}
+                {page}
+              </NavLink>
             ))}
           </Box>
           <Box>

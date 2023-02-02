@@ -10,6 +10,7 @@ import Plants from "./pages/Plants";
 import Icecream from "./pages/Icecream";
 import Notfound from "./pages/Notfound";
 import Login from "./pages/Login";
+import Delivery from "./pages/Delivery";
 function App() {
   let a = ["Cake", "Icecream", "Flowers", "Gifts"];
   let b = [
@@ -33,6 +34,7 @@ function App() {
           <Route path="Cart" element={<Cart />} />
           <Route path="/*" element={<Notfound />} />
           <Route path="Signup/Login" element={<Login />} />
+          <Route path="cart/Delivery" element={<Delivery />} />
         </Routes>
       </BrowserRouter>
     </div>
