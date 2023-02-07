@@ -132,17 +132,11 @@ export default function Cake() {
           container
           spacing={{ xs: 2, md: 2 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
+          style={{ backgroundColor: "pink" }}
         >
           {flowersList.map((item) => {
             return (
-              <Grid
-                display="flex"
-                justifyContent="center"
-                xs={4}
-                sm={4}
-                md={3}
-                pt={4}
-              >
+              <Grid item key={item} xs={12} sm={6} md={3}>
                 <Itemcard
                   title={item.title}
                   subheader={item.subheader}

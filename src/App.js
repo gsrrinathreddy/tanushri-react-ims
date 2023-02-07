@@ -9,16 +9,19 @@ import Gifts from "./pages/Gifts";
 import Plants from "./pages/Plants";
 import Icecream from "./pages/Icecream";
 import Notfound from "./pages/Notfound";
-import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
 import Delivery from "./pages/Delivery";
+import Users from "./pages/User";
 function App() {
-  let a = ["Cake", "Icecream", "Flowers", "Gifts"];
+  let a = ["Cake", "Icecream", "Flowers", "Gifts", "User"];
   let b = [
-    "Signup/Login",
+    "Signin",
     "My Queens Store",
     "My Orders",
     "My Address Book",
     "My Wallet",
+    "Signup",
   ];
   return (
     <div className="App">
@@ -33,8 +36,10 @@ function App() {
 
           <Route path="Cart" element={<Cart />} />
           <Route path="/*" element={<Notfound />} />
-          <Route path="Signup/Login" element={<Login />} />
+          <Route path="Signup" element={<Signup />} />
+          <Route path="Signin" element={<Signin />} />
           <Route path="cart/Delivery" element={<Delivery />} />
+          <Route path="User" element={<Users />} />
         </Routes>
       </BrowserRouter>
     </div>

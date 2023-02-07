@@ -1,3 +1,9 @@
+import Checkout from "../Checkout";
+
 export default function Delivery() {
-  return <>this is delivery page hi</>;
+  return (
+    <>
+      <Checkout />
+    </>
+  );
 }
